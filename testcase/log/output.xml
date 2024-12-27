@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2024-12-26T15:17:03.220305" rpa="false" schemaversion="5">
+<suite id="s1" name="Tc02" source="/Users/pichaya/project_code/logic_sudoku/testcase/tc02.robot">
+<test id="s1-t1" name="Launch iOS App" line="20">
+<kw name="Open Application" owner="AppiumLibrary">
+<msg time="2024-12-26T15:17:03.513127" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105d04440&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<msg time="2024-12-26T15:17:03.513640" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105cfd450&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<msg time="2024-12-26T15:17:03.514061" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105cfd6d0&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<kw name="Capture Page Screenshot">
+<msg time="2024-12-26T15:17:03.514577" level="FAIL">Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Capture Page Screenshot
+    SeleniumLibrary.Capture Page Screenshot</msg>
+<status status="FAIL" start="2024-12-26T15:17:03.514556" elapsed="0.000039">Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Capture Page Screenshot
+    SeleniumLibrary.Capture Page Screenshot</status>
+</kw>
+<msg time="2024-12-26T15:17:03.514985" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Capture Page Screenshot
+    SeleniumLibrary.Capture Page Screenshot</msg>
+<msg time="2024-12-26T15:17:03.515055" level="FAIL">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105b57360&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</msg>
+<arg>${APPIUM_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>platformVersion=${PLATFORM_VERSION}</arg>
+<arg>automationName=${AUTOMATION_NAME}</arg>
+<arg>app=${APP}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="FAIL" start="2024-12-26T15:17:03.511163" elapsed="0.009041">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105b57360&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</status>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>5 seconds</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2024-12-26T15:17:03.520342" elapsed="0.000014"/>
+</kw>
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="NOT RUN" start="2024-12-26T15:17:03.520417" elapsed="0.000009"/>
+</kw>
+<status status="FAIL" start="2024-12-26T15:17:03.510608" elapsed="0.009891">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105b57360&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</status>
+</test>
+<status status="FAIL" start="2024-12-26T15:17:03.220729" elapsed="0.299912"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tc02">Tc02</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-12-26T15:17:03.513127" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105d04440&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<msg time="2024-12-26T15:17:03.513640" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105cfd450&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<msg time="2024-12-26T15:17:03.514061" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105cfd6d0&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
+<msg time="2024-12-26T15:17:03.514985" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
+    AppiumLibrary.Capture Page Screenshot
+    SeleniumLibrary.Capture Page Screenshot</msg>
+</errors>
+</robot>
