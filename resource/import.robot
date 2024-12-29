@@ -26,3 +26,6 @@ Resource    ${CURDIR}/../keyword/common/common_web.robot
 
 # page
 Resource    ${CURDIR}/../keyword/ui/page/sudoku.robot
+
+#excel
+Resource    ${CURDIR}/../keyword/excel/be_af.robot
