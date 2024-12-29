@@ -9,6 +9,7 @@ Library        String
 Library        JSONLibrary
 Library        RequestsLibrary
 Library        AppiumLibrary
+Library        Process
 
 
 # page

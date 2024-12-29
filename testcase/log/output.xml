@@ -1,112 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2024-12-29T15:16:51.555649" rpa="false" schemaversion="5">
-<suite id="s1" name="Tc03 Excel" source="/Users/pichaya/Documents/GitHub/logic_sudoku/testcase/tc03_excel.robot">
-<test id="s1-t1" name="Tc_01" line="5">
-<kw name="Read Data From Excel" owner="be_af">
-<kw name="Open Excel Document" owner="ExcelLibrary">
-<msg time="2024-12-29T15:16:51.708296" level="INFO">${workbook} = Hello</msg>
-<var>${workbook}</var>
-<arg>${excel_path}</arg>
-<arg>${doc_id}</arg>
-<doc>Opens xlsx document file.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.706567" elapsed="0.001747"/>
-</kw>
-<kw name="Read Excel Cell" owner="ExcelLibrary">
-<msg time="2024-12-29T15:16:51.708619" level="INFO">${value} = Hello</msg>
-<var>${value}</var>
-<arg>${1}</arg>
-<arg>${1}</arg>
-<arg>${sheet_name}</arg>
-<doc>Returns content of a cell.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.708385" elapsed="0.000245"/>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2024-12-29T20:46:57.323023" rpa="false" schemaversion="5">
+<suite id="s1" name="Tc04 Testcall Py" source="/Users/pichaya/Documents/GitHub/logic_sudoku/testcase/tc04_testcall_py.robot">
+<test id="s1-t1" name="Call Python With Arguments" line="5">
+<kw name="Run Process" owner="Process">
+<msg time="2024-12-29T20:46:57.471827" level="INFO">Starting process:
+python -u /Users/pichaya/Documents/GitHub/logic_sudoku/testcase/../keyword/common/calculator.py</msg>
+<msg time="2024-12-29T20:46:57.474347" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-12-29T20:46:57.485407" level="INFO">Process completed.</msg>
+<msg time="2024-12-29T20:46:57.485604" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>python</arg>
+<arg>-u</arg>
+<arg>/Users/pichaya/Documents/GitHub/logic_sudoku/testcase/../keyword/common/calculator.py</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2024-12-29T20:46:57.471732" elapsed="0.013893"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
-<arg>${value}</arg>
+<arg>\n${result}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.708960" elapsed="0.000059"/>
+<status status="PASS" start="2024-12-29T20:46:57.486331" elapsed="0.000152"/>
 </kw>
-<kw name="Close Current Excel Document" owner="ExcelLibrary" type="TEARDOWN">
-<doc>Closes current document.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.709088" elapsed="0.000031"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n${result.stdout}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-12-29T20:46:57.486560" elapsed="0.000237"/>
 </kw>
-<arg>${excel_path}</arg>
-<arg>Hello</arg>
-<arg>Sheet1</arg>
-<arg>1</arg>
-<arg>1</arg>
-<status status="PASS" start="2024-12-29T15:16:51.706413" elapsed="0.002727"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n${result.stderr}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-12-29T20:46:57.486867" elapsed="0.000148"/>
 </kw>
-<kw name="Write date to excel" owner="be_af">
-<kw name="Open Excel Document" owner="ExcelLibrary">
-<msg time="2024-12-29T15:16:51.710655" level="INFO">${workbook} = before</msg>
-<var>${workbook}</var>
-<arg>${file_name}</arg>
-<arg>${doc_id}</arg>
-<doc>Opens xlsx document file.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.709341" elapsed="0.001326"/>
-</kw>
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row_num}</arg>
-<arg>${colum_num}</arg>
-<arg>${value}</arg>
-<arg>${sheet_name}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.710722" elapsed="0.000093"/>
-</kw>
-<kw name="Save Excel Document" owner="ExcelLibrary">
-<arg>${file_name}</arg>
-<doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.710854" elapsed="0.003266"/>
-</kw>
-<kw name="Close All Excel Documents" owner="ExcelLibrary">
-<doc>Closes all opened documents.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.714199" elapsed="0.000040"/>
-</kw>
-<arg>${excel_path}</arg>
-<arg>before</arg>
-<arg>Sheet1</arg>
-<arg>1</arg>
-<arg>1</arg>
-<arg>Before</arg>
-<status status="PASS" start="2024-12-29T15:16:51.709236" elapsed="0.005031"/>
-</kw>
-<kw name="Write date to excel" owner="be_af">
-<kw name="Open Excel Document" owner="ExcelLibrary">
-<msg time="2024-12-29T15:16:51.715488" level="INFO">${workbook} = after</msg>
-<var>${workbook}</var>
-<arg>${file_name}</arg>
-<arg>${doc_id}</arg>
-<doc>Opens xlsx document file.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.714480" elapsed="0.001019"/>
-</kw>
-<kw name="Write Excel Cell" owner="ExcelLibrary">
-<arg>${row_num}</arg>
-<arg>${colum_num}</arg>
-<arg>${value}</arg>
-<arg>${sheet_name}</arg>
-<doc>Writes value to the cell.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.715544" elapsed="0.000079"/>
-</kw>
-<kw name="Save Excel Document" owner="ExcelLibrary">
-<arg>${file_name}</arg>
-<doc>Saves the current document to disk.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.715663" elapsed="0.001259"/>
-</kw>
-<kw name="Close All Excel Documents" owner="ExcelLibrary">
-<doc>Closes all opened documents.</doc>
-<status status="PASS" start="2024-12-29T15:16:51.716966" elapsed="0.000030"/>
-</kw>
-<arg>${excel_path}</arg>
-<arg>after</arg>
-<arg>Sheet1</arg>
-<arg>1</arg>
-<arg>2</arg>
-<arg>After</arg>
-<status status="PASS" start="2024-12-29T15:16:51.714356" elapsed="0.002659"/>
-</kw>
-<status status="PASS" start="2024-12-29T15:16:51.706141" elapsed="0.010928"/>
+<status status="PASS" start="2024-12-29T20:46:57.471483" elapsed="0.015624"/>
 </test>
-<status status="PASS" start="2024-12-29T15:16:51.556400" elapsed="0.160807"/>
+<status status="PASS" start="2024-12-29T20:46:57.323451" elapsed="0.164165"/>
 </suite>
 <statistics>
 <total>
@@ -115,7 +41,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Tc03 Excel">Tc03 Excel</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tc04 Testcall Py">Tc04 Testcall Py</stat>
 </suite>
 </statistics>
 <errors>
