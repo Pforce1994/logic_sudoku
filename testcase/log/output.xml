@@ -1,67 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2024-12-26T15:17:03.220305" rpa="false" schemaversion="5">
-<suite id="s1" name="Tc02" source="/Users/pichaya/project_code/logic_sudoku/testcase/tc02.robot">
-<test id="s1-t1" name="Launch iOS App" line="20">
-<kw name="Open Application" owner="AppiumLibrary">
-<msg time="2024-12-26T15:17:03.513127" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105d04440&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<msg time="2024-12-26T15:17:03.513640" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105cfd450&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<msg time="2024-12-26T15:17:03.514061" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105cfd6d0&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<kw name="Capture Page Screenshot">
-<msg time="2024-12-26T15:17:03.514577" level="FAIL">Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
-    AppiumLibrary.Capture Page Screenshot
-    SeleniumLibrary.Capture Page Screenshot</msg>
-<status status="FAIL" start="2024-12-26T15:17:03.514556" elapsed="0.000039">Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
-    AppiumLibrary.Capture Page Screenshot
-    SeleniumLibrary.Capture Page Screenshot</status>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2024-12-29T15:16:51.555649" rpa="false" schemaversion="5">
+<suite id="s1" name="Tc03 Excel" source="/Users/pichaya/Documents/GitHub/logic_sudoku/testcase/tc03_excel.robot">
+<test id="s1-t1" name="Tc_01" line="5">
+<kw name="Read Data From Excel" owner="be_af">
+<kw name="Open Excel Document" owner="ExcelLibrary">
+<msg time="2024-12-29T15:16:51.708296" level="INFO">${workbook} = Hello</msg>
+<var>${workbook}</var>
+<arg>${excel_path}</arg>
+<arg>${doc_id}</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.706567" elapsed="0.001747"/>
 </kw>
-<msg time="2024-12-26T15:17:03.514985" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
-    AppiumLibrary.Capture Page Screenshot
-    SeleniumLibrary.Capture Page Screenshot</msg>
-<msg time="2024-12-26T15:17:03.515055" level="FAIL">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105b57360&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</msg>
-<arg>${APPIUM_URL}</arg>
-<arg>platformName=${PLATFORM_NAME}</arg>
-<arg>deviceName=${DEVICE_NAME}</arg>
-<arg>platformVersion=${PLATFORM_VERSION}</arg>
-<arg>automationName=${AUTOMATION_NAME}</arg>
-<arg>app=${APP}</arg>
-<doc>Opens a new application to given Appium server.
-Capabilities of appium server, Android and iOS,
-Please check https://appium.io/docs/en/2.1/cli/args/
-| *Option*            | *Man.* | *Description*     |
-| remote_url          | Yes    | Appium server url |
-| alias               | no     | alias             |
-| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
-<status status="FAIL" start="2024-12-26T15:17:03.511163" elapsed="0.009041">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105b57360&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</status>
+<kw name="Read Excel Cell" owner="ExcelLibrary">
+<msg time="2024-12-29T15:16:51.708619" level="INFO">${value} = Hello</msg>
+<var>${value}</var>
+<arg>${1}</arg>
+<arg>${1}</arg>
+<arg>${sheet_name}</arg>
+<doc>Returns content of a cell.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.708385" elapsed="0.000245"/>
 </kw>
-<kw name="Sleep" owner="BuiltIn">
-<arg>5 seconds</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" start="2024-12-26T15:17:03.520342" elapsed="0.000014"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${value}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.708960" elapsed="0.000059"/>
 </kw>
-<kw name="Close Application" owner="AppiumLibrary">
-<doc>Closes the current application and also close webdriver session.</doc>
-<status status="NOT RUN" start="2024-12-26T15:17:03.520417" elapsed="0.000009"/>
+<kw name="Close Current Excel Document" owner="ExcelLibrary" type="TEARDOWN">
+<doc>Closes current document.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.709088" elapsed="0.000031"/>
 </kw>
-<status status="FAIL" start="2024-12-26T15:17:03.510608" elapsed="0.009891">MaxRetryError: HTTPConnectionPool(host='localhost', port=4723): Max retries exceeded with url: /wd/hub/session (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105b57360&gt;: Failed to establish a new connection: [Errno 61] Connection refused'))</status>
+<arg>${excel_path}</arg>
+<arg>Hello</arg>
+<arg>Sheet1</arg>
+<arg>1</arg>
+<arg>1</arg>
+<status status="PASS" start="2024-12-29T15:16:51.706413" elapsed="0.002727"/>
+</kw>
+<kw name="Write date to excel" owner="be_af">
+<kw name="Open Excel Document" owner="ExcelLibrary">
+<msg time="2024-12-29T15:16:51.710655" level="INFO">${workbook} = before</msg>
+<var>${workbook}</var>
+<arg>${file_name}</arg>
+<arg>${doc_id}</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.709341" elapsed="0.001326"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row_num}</arg>
+<arg>${colum_num}</arg>
+<arg>${value}</arg>
+<arg>${sheet_name}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.710722" elapsed="0.000093"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${file_name}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.710854" elapsed="0.003266"/>
+</kw>
+<kw name="Close All Excel Documents" owner="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.714199" elapsed="0.000040"/>
+</kw>
+<arg>${excel_path}</arg>
+<arg>before</arg>
+<arg>Sheet1</arg>
+<arg>1</arg>
+<arg>1</arg>
+<arg>Before</arg>
+<status status="PASS" start="2024-12-29T15:16:51.709236" elapsed="0.005031"/>
+</kw>
+<kw name="Write date to excel" owner="be_af">
+<kw name="Open Excel Document" owner="ExcelLibrary">
+<msg time="2024-12-29T15:16:51.715488" level="INFO">${workbook} = after</msg>
+<var>${workbook}</var>
+<arg>${file_name}</arg>
+<arg>${doc_id}</arg>
+<doc>Opens xlsx document file.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.714480" elapsed="0.001019"/>
+</kw>
+<kw name="Write Excel Cell" owner="ExcelLibrary">
+<arg>${row_num}</arg>
+<arg>${colum_num}</arg>
+<arg>${value}</arg>
+<arg>${sheet_name}</arg>
+<doc>Writes value to the cell.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.715544" elapsed="0.000079"/>
+</kw>
+<kw name="Save Excel Document" owner="ExcelLibrary">
+<arg>${file_name}</arg>
+<doc>Saves the current document to disk.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.715663" elapsed="0.001259"/>
+</kw>
+<kw name="Close All Excel Documents" owner="ExcelLibrary">
+<doc>Closes all opened documents.</doc>
+<status status="PASS" start="2024-12-29T15:16:51.716966" elapsed="0.000030"/>
+</kw>
+<arg>${excel_path}</arg>
+<arg>after</arg>
+<arg>Sheet1</arg>
+<arg>1</arg>
+<arg>2</arg>
+<arg>After</arg>
+<status status="PASS" start="2024-12-29T15:16:51.714356" elapsed="0.002659"/>
+</kw>
+<status status="PASS" start="2024-12-29T15:16:51.706141" elapsed="0.010928"/>
 </test>
-<status status="FAIL" start="2024-12-26T15:17:03.220729" elapsed="0.299912"/>
+<status status="PASS" start="2024-12-29T15:16:51.556400" elapsed="0.160807"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Tc02">Tc02</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tc03 Excel">Tc03 Excel</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2024-12-26T15:17:03.513127" level="WARN">Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105d04440&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<msg time="2024-12-26T15:17:03.513640" level="WARN">Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105cfd450&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<msg time="2024-12-26T15:17:03.514061" level="WARN">Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x105cfd6d0&gt;: Failed to establish a new connection: [Errno 61] Connection refused')': /wd/hub/session</msg>
-<msg time="2024-12-26T15:17:03.514985" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Multiple keywords with name 'Capture Page Screenshot' found. Give the full name of the keyword you want to use:
-    AppiumLibrary.Capture Page Screenshot
-    SeleniumLibrary.Capture Page Screenshot</msg>
 </errors>
 </robot>

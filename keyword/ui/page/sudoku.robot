@@ -14,6 +14,8 @@ Receive the sudoku
             Exit For Loop If    ${status}   
         END
     END
+    ${photo}    Set Variable    ${CURDIR}/../../../testcase/log/photo_output/sudoku_before.png
+    SeleniumLibrary.Capture Page Screenshot    ${photo}
     FOR  ${i}  IN RANGE  1  10
         ${take_tr}     BuiltIn.Set Variable      (${sudoku['table_row']})[${i}]
         @{td}    BuiltIn.Create List
@@ -40,6 +42,7 @@ Receive the sudoku
         Collections.Append To List    ${tr}     ${td}
     END
     # BuiltIn.Log To Console    ${tr}    
+    RETURN    ${photo}
 
 Processing the sudoku
     # BuiltIn.Log To Console    ${tr}[0]
@@ -180,8 +183,6 @@ Processing the sudoku
     END
 
 Input data
-    # Log To Console    hello:${xy_output}
-    # Log To Console    ${tr}
     ${status}    Run Keyword And Return Status    SeleniumLibrary.Wait Until Element Is Visible    ${sudoku['table_sudoku']}    timeout=${10s_timeout}
     IF  ${status} == ${False}
         FOR  ${i}  IN RANGE  0    ${retry}
@@ -190,16 +191,16 @@ Input data
         END
     END
     FOR    ${a}    IN  @{xy_output}
-        # FOR  ${i}  IN RANGE  1  10
         ${take_tr}     BuiltIn.Set Variable      (${sudoku['table_row']})[${a["x"]}]
-            # FOR  ${ii}  IN RANGE  1    10
             ${take_td}     BuiltIn.Set Variable     (${take_tr}${sudoku['table_colum']})[${a["y"]}]
         SeleniumLibrary.Click Element       ${take_td}
         Log To Console    ${take_td}:${a["value"]}
         SeleniumLibrary.Click Button    (${sudoku['numpad']})[${a["value"]}]
     END
-        # END    
-    # END
+    ${photo}    Set Variable   ${CURDIR}/../../../testcase/log/photo_output/sudoku_after.png
+    SeleniumLibrary.Capture Page Screenshot    ${photo}
+    RETURN    ${photo}
+  
 
  
       

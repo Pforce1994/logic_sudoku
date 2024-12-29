@@ -16,4 +16,5 @@ retry:  3
 round : 0
 
 
-url :  https://www.sudoku.net/th
+url:  https://www.sudoku.net/th
+excel_path: /Users/pichaya/Documents/GitHub/logic_sudoku/resource/excel/test_excel.xlsx
