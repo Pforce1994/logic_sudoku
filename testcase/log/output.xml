@@ -1,54 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2025-01-02T20:41:28.161693" rpa="false" schemaversion="5">
-<suite id="s1" name="Tc06 Database" source="/Users/pichaya/Documents/GitHub/logic_sudoku/testcase/tc06_database.robot">
-<kw name="Connect To Database" owner="DatabaseLibrary" type="SETUP">
-<msg time="2025-01-02T20:41:28.308916" level="INFO">Looking for configuration file: 'resources/db.cfg'</msg>
-<msg time="2025-01-02T20:41:28.308934" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2025-01-02T20:41:28.311503" level="INFO">Connect to DB using : pymysql.connect(db='databasename', user='root', passwd=***, host='localhost', port=3307, charset='utf8mb4')</msg>
-<arg>${DBType}</arg>
-<arg>${DBName}</arg>
-<arg>${DBUser}</arg>
-<arg>${DBPass}</arg>
-<arg>${DBHost}</arg>
-<arg>${DBPort}</arg>
-<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
-Along with listed commonly used arguments (`db_name`, `db_host` etc.)
-you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="PASS" start="2025-01-02T20:41:28.308772" elapsed="0.008985"/>
-</kw>
-<test id="s1-t1" name="Test Database Connection" line="16">
-<kw name="Query" owner="DatabaseLibrary">
-<msg time="2025-01-02T20:41:28.318267" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * FROM Persons limit 1&lt;/code&gt;</msg>
-<msg time="2025-01-02T20:41:28.319596" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;ID&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;LastName&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;FirstName&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Age&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: #eee;"&gt;&lt;th scope="row" style="background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;155990&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;koedchai&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Pichaya&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;31&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
-<msg time="2025-01-02T20:41:28.320459" level="INFO">${result} = ((155990, 'koedchai', 'Pichaya', 31),)</msg>
-<var>${result}</var>
-<arg>SELECT * FROM Persons limit 1</arg>
-<doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
-The type of row values depends on the database module -
-usually they are tuples or tuple-like objects.</doc>
-<status status="PASS" start="2025-01-02T20:41:28.318196" elapsed="0.002274"/>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2025-01-02T22:45:07.074078" rpa="false" schemaversion="5">
+<suite id="s1" name="Tc05 Api" source="/Users/pichaya/Documents/GitHub/logic_sudoku/testcase/tc05_api.robot">
+<test id="s1-t1" name="Quick Get Request Test" line="8">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-01-02T22:45:07.776130" level="INFO">GET Request : url=https://reqres.in/api/users 
+ path_url=/api/users 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-01-02T22:45:07.776538" level="INFO">GET Response : url=https://reqres.in/api/users 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 02 Jan 2025 15:45:07 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1735549778&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ZJnhL%2BOlzRlgN48ewwM1u5cmBQlC4NV02%2FRmf9uljmk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1735549778&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=ZJnhL%2BOlzRlgN48ewwM1u5cmBQlC4NV02%2FRmf9uljmk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"41e-bY3U72nulxuwNd/TmihMEHjLmek"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'REVALIDATED', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8fbbdfd5283b3e29-SIN', 'Content-Encoding': 'gzip', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=34380&amp;min_rtt=34230&amp;rtt_var=13138&amp;sent=5&amp;recv=6&amp;lost=0&amp;retrans=0&amp;sent_bytes=2833&amp;recv_bytes=768&amp;delivery_rate=114118&amp;cwnd=252&amp;unsent_bytes=0&amp;cid=fe1fc52d4833586d&amp;ts=468&amp;x=0"'} 
+ body={"page":1,"per_page":6,"total":12,"total_pages":2,"data":[{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},{"id":2,"email":"janet.weaver@reqres.in","first_name":"Janet","last_name":"Weaver","avatar":"https://reqres.in/img/faces/2-image.jpg"},{"id":3,"email":"emma.wong@reqres.in","first_name":"Emma","last_name":"Wong","avatar":"https://reqres.in/img/faces/3-image.jpg"},{"id":4,"email":"eve.holt@reqres.in","first_name":"Eve","last_name":"Holt","avatar":"https://reqres.in/img/faces/4-image.jpg"},{"id":5,"email":"charles.morris@reqres.in","first_name":"Charles","last_name":"Morris","avatar":"https://reqres.in/img/faces/5-image.jpg"},{"id":6,"email":"tracey.ramos@reqres.in","first_name":"Tracey","last_name":"Ramos","avatar":"https://reqres.in/img/faces/6-image.jpg"}],"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
+ </msg>
+<msg time="2025-01-02T22:45:07.776896" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-01-02T22:45:07.221491" elapsed="0.555471"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
-<arg>${result}</arg>
+<arg>${response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-01-02T20:41:28.320557" elapsed="0.000073"/>
+<status status="PASS" start="2025-01-02T22:45:07.777877" elapsed="0.001091"/>
 </kw>
-<status status="PASS" start="2025-01-02T20:41:28.317916" elapsed="0.002797"/>
+<status status="PASS" start="2025-01-02T22:45:07.221209" elapsed="0.558168"/>
 </test>
-<kw name="Disconnect From Database" owner="DatabaseLibrary" type="TEARDOWN">
-<doc>Disconnects from the database.</doc>
-<status status="PASS" start="2025-01-02T20:41:28.320931" elapsed="0.000081"/>
+<test id="s1-t2" name="Quick Get Request With Parameters Test" line="12">
+<kw name="GET" owner="RequestsLibrary">
+<msg time="2025-01-02T22:45:07.856536" level="INFO">GET Request : url=https://reqres.in/api/users?id=1 
+ path_url=/api/users?id=1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg time="2025-01-02T22:45:07.856777" level="INFO">GET Response : url=https://reqres.in/api/users?id=1 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 02 Jan 2025 15:45:07 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1735831726&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=IvCNjtVVknryJTZ5uZ6pTLNfA7UQzDUuiStYSOafYlA%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1735831726&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=IvCNjtVVknryJTZ5uZ6pTLNfA7UQzDUuiStYSOafYlA%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"152-u+PREu/p8Opn/uEvEGESR7Dst7c"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '981', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8fbbdfd84d0d7997-BKK', 'Content-Encoding': 'gzip', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=10495&amp;min_rtt=10174&amp;rtt_var=3124&amp;sent=5&amp;recv=7&amp;lost=0&amp;retrans=0&amp;sent_bytes=2835&amp;recv_bytes=773&amp;delivery_rate=370058&amp;cwnd=252&amp;unsent_bytes=0&amp;cid=8bb34767736018e2&amp;ts=49&amp;x=0"'} 
+ body={"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://contentcaddy.io?utm_source=reqres&amp;utm_medium=json&amp;utm_campaign=referral","text":"Tired of writing endless social media content? Let Content Caddy generate it for you."}} 
+ </msg>
+<msg time="2025-01-02T22:45:07.857095" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}</arg>
+<arg>params=id=1</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a GET request.</doc>
+<status status="PASS" start="2025-01-02T22:45:07.780060" elapsed="0.077065"/>
 </kw>
-<status status="PASS" start="2025-01-02T20:41:28.162486" elapsed="0.158546"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-02T22:45:07.857610" elapsed="0.000822"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-02T22:45:07.858645" elapsed="0.000558"/>
+</kw>
+<status status="PASS" start="2025-01-02T22:45:07.779684" elapsed="0.079762"/>
+</test>
+<test id="s1-t3" name="Quick PUT A JSON Body Test" line="17">
+<kw name="PUT" owner="RequestsLibrary">
+<msg time="2025-01-02T22:45:08.418881" level="INFO">PUT Request : url=https://reqres.in/api/users/posts:?id=1 
+ path_url=/api/users/posts:?id=1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '43'} 
+ body={"id": 3,"email": "janet.weaver@reqres.in"} 
+ </msg>
+<msg time="2025-01-02T22:45:08.418996" level="INFO">PUT Response : url=https://reqres.in/api/users/posts:?id=1 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 02 Jan 2025 15:45:08 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '40', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1735832708&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=I1JlEdPn6RhiTZoVowJL5IU9JY0ZiFr%2FkpI40YOn1Pg%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1735832708&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=I1JlEdPn6RhiTZoVowJL5IU9JY0ZiFr%2FkpI40YOn1Pg%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"28-joEOlGAdy9JjKslfsqx6Etia19I"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '8fbbdfd8ca197dbd-BKK', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=9912&amp;min_rtt=9727&amp;rtt_var=3780&amp;sent=6&amp;recv=7&amp;lost=0&amp;retrans=0&amp;sent_bytes=2834&amp;recv_bytes=865&amp;delivery_rate=415749&amp;cwnd=252&amp;unsent_bytes=0&amp;cid=cd30eecf77da5a51&amp;ts=532&amp;x=0"'} 
+ body={"updatedAt":"2025-01-02T15:45:08.349Z"} 
+ </msg>
+<msg time="2025-01-02T22:45:08.419309" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}/posts:</arg>
+<arg>params=id=1</arg>
+<arg>data={"id": 3,"email": "janet.weaver@reqres.in"}</arg>
+<arg>expected_status=200</arg>
+<doc>Sends a PUT request.</doc>
+<status status="PASS" start="2025-01-02T22:45:07.860414" elapsed="0.558921"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-02T22:45:08.419601" elapsed="0.000557"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-02T22:45:08.420283" elapsed="0.000364"/>
+</kw>
+<status status="PASS" start="2025-01-02T22:45:07.859935" elapsed="0.560814"/>
+</test>
+<test id="s1-t4" name="Quick POST A JSON Body Test" line="24">
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2025-01-02T22:45:08.904001" level="INFO">POST Request : url=https://reqres.in/api/users/posts: 
+ path_url=/api/users/posts: 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '36'} 
+ body={"name": "morpheus","job": "leader"} 
+ </msg>
+<msg time="2025-01-02T22:45:08.904050" level="INFO">POST Response : url=https://reqres.in/api/users/posts: 
+ status=201, reason=Created 
+ headers={'Date': 'Thu, 02 Jan 2025 15:45:08 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '51', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1735832708&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=I1JlEdPn6RhiTZoVowJL5IU9JY0ZiFr%2FkpI40YOn1Pg%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1735832708&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=I1JlEdPn6RhiTZoVowJL5IU9JY0ZiFr%2FkpI40YOn1Pg%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"33-ORMaxuBTy+IdIVsBa5ABEvt39v8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8fbbdfdcaf53fd0c-SIN', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=33449&amp;min_rtt=32620&amp;rtt_var=9650&amp;sent=6&amp;recv=8&amp;lost=0&amp;retrans=0&amp;sent_bytes=2835&amp;recv_bytes=854&amp;delivery_rate=121223&amp;cwnd=252&amp;unsent_bytes=0&amp;cid=062edff4b3d1db11&amp;ts=412&amp;x=0"'} 
+ body={"id":"640","createdAt":"2025-01-02T15:45:08.861Z"} 
+ </msg>
+<msg time="2025-01-02T22:45:08.904220" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}/posts:</arg>
+<arg>data={"name": "morpheus","job": "leader"}</arg>
+<arg>expected_status=201</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2025-01-02T22:45:08.421154" elapsed="0.483079"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-02T22:45:08.904373" elapsed="0.000251"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.json()}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-02T22:45:08.904694" elapsed="0.000194"/>
+</kw>
+<status status="PASS" start="2025-01-02T22:45:08.420927" elapsed="0.484011"/>
+</test>
+<test id="s1-t5" name="Quick DELET A JSON Body Test" line="31">
+<kw name="DELETE" owner="RequestsLibrary">
+<msg time="2025-01-02T22:45:09.561732" level="INFO">DELETE Request : url=https://reqres.in/api/users/posts:?id=1 
+ path_url=/api/users/posts:?id=1 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-01-02T22:45:09.561997" level="INFO">DELETE Response : url=https://reqres.in/api/users/posts:?id=1 
+ status=204, reason=No Content 
+ headers={'Date': 'Thu, 02 Jan 2025 15:45:09 GMT', 'Content-Length': '0', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1735832709&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=9ch4f5R2YP1Cr6K%2B5a5i2YfiiK%2FbzWgGwqX71m%2BNu0w%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1735832709&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=9ch4f5R2YP1Cr6K%2B5a5i2YfiiK%2FbzWgGwqX71m%2BNu0w%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"2-vyGp6PvFo4RvsFtPoIWeCReyIC8"', 'Via': '1.1 vegur', 'CF-Cache-Status': 'DYNAMIC', 'Server': 'cloudflare', 'CF-RAY': '8fbbdfdf48072dd4-BKK', 'server-timing': 'cfL4;desc="?proto=TCP&amp;rtt=10154&amp;min_rtt=9257&amp;rtt_var=3101&amp;sent=5&amp;recv=7&amp;lost=0&amp;retrans=0&amp;sent_bytes=2834&amp;recv_bytes=802&amp;delivery_rate=395037&amp;cwnd=252&amp;unsent_bytes=0&amp;cid=b2e89ad41504e8c1&amp;ts=529&amp;x=0"'} 
+ body=None 
+ </msg>
+<msg time="2025-01-02T22:45:09.562360" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<var>${response}</var>
+<arg>${BASE_URL}/posts:</arg>
+<arg>params=id=1</arg>
+<arg>expected_status=204</arg>
+<doc>Sends a DELETE request.</doc>
+<status status="PASS" start="2025-01-02T22:45:08.905137" elapsed="0.657284"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-02T22:45:09.563091" elapsed="0.001064"/>
+</kw>
+<status status="PASS" start="2025-01-02T22:45:08.905019" elapsed="0.659380"/>
+</test>
+<status status="PASS" start="2025-01-02T22:45:07.074795" elapsed="2.490435"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Tc06 Database">Tc06 Database</stat>
+<stat pass="5" fail="0" skip="0" id="s1" name="Tc05 Api">Tc05 Api</stat>
 </suite>
 </statistics>
 <errors>
