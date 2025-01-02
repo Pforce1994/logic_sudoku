@@ -1,44 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2025-01-01T21:58:44.420816" rpa="false" schemaversion="5">
+<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2025-01-02T20:41:28.161693" rpa="false" schemaversion="5">
 <suite id="s1" name="Tc06 Database" source="/Users/pichaya/Documents/GitHub/logic_sudoku/testcase/tc06_database.robot">
-<test id="s1-t1" name="Test Database Connection" line="12">
-<kw name="Connect To Database" owner="DatabaseLibrary">
-<msg time="2025-01-01T21:58:44.567183" level="INFO">Looking for configuration file: 'resources/db.cfg'</msg>
-<msg time="2025-01-01T21:58:44.567200" level="INFO">Configuration file doesn't exist</msg>
-<msg time="2025-01-01T21:58:44.567519" level="FAIL">ModuleNotFoundError: No module named 'localhost'</msg>
-<arg>localhost</arg>
-<arg>phpmyadmin</arg>
-<arg>root</arg>
-<arg>your_password</arg>
-<arg>localhost</arg>
-<arg>8080</arg>
+<kw name="Connect To Database" owner="DatabaseLibrary" type="SETUP">
+<msg time="2025-01-02T20:41:28.308916" level="INFO">Looking for configuration file: 'resources/db.cfg'</msg>
+<msg time="2025-01-02T20:41:28.308934" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2025-01-02T20:41:28.311503" level="INFO">Connect to DB using : pymysql.connect(db='databasename', user='root', passwd=***, host='localhost', port=3307, charset='utf8mb4')</msg>
+<arg>${DBType}</arg>
+<arg>${DBName}</arg>
+<arg>${DBUser}</arg>
+<arg>${DBPass}</arg>
+<arg>${DBHost}</arg>
+<arg>${DBPort}</arg>
 <doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
 Along with listed commonly used arguments (`db_name`, `db_host` etc.)
 you can set any other DB module specific parameters as key/value pairs.</doc>
-<status status="FAIL" start="2025-01-01T21:58:44.567087" elapsed="0.000876">ModuleNotFoundError: No module named 'localhost'</status>
+<status status="PASS" start="2025-01-02T20:41:28.308772" elapsed="0.008985"/>
 </kw>
-<kw name="Execute Sql String" owner="DatabaseLibrary">
+<test id="s1-t1" name="Test Database Connection" line="16">
+<kw name="Query" owner="DatabaseLibrary">
+<msg time="2025-01-02T20:41:28.318267" level="INFO" html="true">Executing sql:&lt;br&gt;&lt;code style="font-weight: bold;"&gt;SELECT * FROM Persons limit 1&lt;/code&gt;</msg>
+<msg time="2025-01-02T20:41:28.319596" level="INFO" html="true">&lt;div style="max-width: 100%; overflow-x: auto;"&gt;&lt;table style="width: auto; border-collapse: collapse; border: 2px solid rgb(140 140 140)"&gt;&lt;caption style="text-align: left; font-weight: bold; padding: 5px;"&gt;Query returned 1 rows&lt;/caption&gt;&lt;tr&gt;&lt;th scope="col" style="background-color: #d6ecd4; border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Row&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;ID&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;LastName&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;FirstName&lt;/th&gt;&lt;th scope="col" style="background-color: #505050; color: #fff;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Age&lt;/th&gt;&lt;/tr&gt;&lt;tr style="background-color: #eee;"&gt;&lt;th scope="row" style="background-color: #d6ecd4;border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;0&lt;/th&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;155990&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;koedchai&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;Pichaya&lt;/td&gt;&lt;td style="border: 1px solid rgb(160 160 160);padding: 8px 10px;text-align: center;"&gt;31&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2025-01-02T20:41:28.320459" level="INFO">${result} = ((155990, 'koedchai', 'Pichaya', 31),)</msg>
 <var>${result}</var>
-<arg>SELECT * FROM students</arg>
-<doc>Executes the ``sql_string`` as a single SQL command.</doc>
-<status status="NOT RUN" start="2025-01-01T21:58:44.568073" elapsed="0.000013"/>
+<arg>SELECT * FROM Persons limit 1</arg>
+<doc>Runs a query with the ``select_statement`` and returns the result as list of rows.
+The type of row values depends on the database module -
+usually they are tuples or tuple-like objects.</doc>
+<status status="PASS" start="2025-01-02T20:41:28.318196" elapsed="0.002274"/>
 </kw>
-<kw name="Disconnect From Database" owner="DatabaseLibrary">
-<doc>Disconnects from the database.</doc>
-<status status="NOT RUN" start="2025-01-01T21:58:44.568441" elapsed="0.000010"/>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${result}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-01-02T20:41:28.320557" elapsed="0.000073"/>
 </kw>
-<status status="FAIL" start="2025-01-01T21:58:44.566830" elapsed="0.001690">ModuleNotFoundError: No module named 'localhost'</status>
+<status status="PASS" start="2025-01-02T20:41:28.317916" elapsed="0.002797"/>
 </test>
-<status status="FAIL" start="2025-01-01T21:58:44.421571" elapsed="0.147098"/>
+<kw name="Disconnect From Database" owner="DatabaseLibrary" type="TEARDOWN">
+<doc>Disconnects from the database.</doc>
+<status status="PASS" start="2025-01-02T20:41:28.320931" elapsed="0.000081"/>
+</kw>
+<status status="PASS" start="2025-01-02T20:41:28.162486" elapsed="0.158546"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Tc06 Database">Tc06 Database</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tc06 Database">Tc06 Database</stat>
 </suite>
 </statistics>
 <errors>
