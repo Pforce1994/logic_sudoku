@@ -16,7 +16,7 @@ Receive the sudoku
     END
     ${photo}    Set Variable    ${CURDIR}/../../../testcase/log/photo_output/sudoku_before.png
     SeleniumLibrary.Capture Page Screenshot    ${photo}
-    log    <img src="${photo}" alt="sudoku_before.png" width="200" height="200">
+    log    <img src="${photo}" alt="sudoku_before.png" width="200" height="200"  />    html=True
     FOR  ${i}  IN RANGE  1  10
         ${take_tr}     BuiltIn.Set Variable      (${sudoku['table_row']})[${i}]
         @{td}    BuiltIn.Create List
@@ -200,7 +200,7 @@ Input data
     END
     ${photo}    Set Variable   ${CURDIR}/../../../testcase/log/photo_output/sudoku_after.png
     SeleniumLibrary.Capture Page Screenshot    ${photo}
-    log    <img src="${photo}" alt="sudoku_after.png" width="200" height="200">
+    log    <img src="${photo}" alt="sudoku_after.png" width="200" height="200"  />    html=True
     RETURN    ${photo}
   
 

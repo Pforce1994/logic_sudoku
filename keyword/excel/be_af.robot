@@ -2,11 +2,10 @@
 Resource    ${CURDIR}/../../resource/import.robot
 
 *** Keywords ***
-Save PNG To Excel
-    [Arguments]    ${png_path}    ${file_name}   ${doc_id}   ${sheet_name}    ${row_num}    ${colum_num}
+Save photo
+    [Arguments]   ${file_name}   ${doc_id}      ${photo1}    ${photo2}
     ${workbook}   ExcelLibrary.Open Excel Document       ${excel_path}    ${doc_id} 
-    
-    ExcelLibrary.Save Excel Document        ${file_name}
+    ${result}     process.Run Process    python  -u   ${CURDIR}/../../keyword/excel/save_photo.py     ${photo1}    ${photo2}
     [Teardown]    ExcelLibrary.Close Current Excel Document
 
 Read Data From Excel

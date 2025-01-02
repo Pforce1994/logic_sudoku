@@ -7,5 +7,6 @@ Tc_01
     ${photo_be}    sudoku.Receive the sudoku
     sudoku.Processing the sudoku
     ${photo_af}    sudoku.Input data
+    be_af.Save photo    ${excel_path}    save    ${photo_be}    ${photo_af}    
    
     

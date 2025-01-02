@@ -18,3 +18,5 @@ round : 0
 
 url:  https://www.sudoku.net/th
 excel_path: /Users/pichaya/Documents/GitHub/logic_sudoku/resource/excel/test_excel.xlsx
+photo3: /Users/pichaya/Documents/GitHub/logic_sudoku/testcase/log/photo_output/sudoku_after.png
+photo4: /Users/pichaya/Documents/GitHub/logic_sudoku/testcase/log/photo_output/sudoku_before.png

@@ -1,47 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2024-12-29T20:46:57.323023" rpa="false" schemaversion="5">
-<suite id="s1" name="Tc04 Testcall Py" source="/Users/pichaya/Documents/GitHub/logic_sudoku/testcase/tc04_testcall_py.robot">
-<test id="s1-t1" name="Call Python With Arguments" line="5">
-<kw name="Run Process" owner="Process">
-<msg time="2024-12-29T20:46:57.471827" level="INFO">Starting process:
-python -u /Users/pichaya/Documents/GitHub/logic_sudoku/testcase/../keyword/common/calculator.py</msg>
-<msg time="2024-12-29T20:46:57.474347" level="INFO">Waiting for process to complete.</msg>
-<msg time="2024-12-29T20:46:57.485407" level="INFO">Process completed.</msg>
-<msg time="2024-12-29T20:46:57.485604" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<robot generator="Robot 7.1.1 (Python 3.13.1 on darwin)" generated="2025-01-01T21:58:44.420816" rpa="false" schemaversion="5">
+<suite id="s1" name="Tc06 Database" source="/Users/pichaya/Documents/GitHub/logic_sudoku/testcase/tc06_database.robot">
+<test id="s1-t1" name="Test Database Connection" line="12">
+<kw name="Connect To Database" owner="DatabaseLibrary">
+<msg time="2025-01-01T21:58:44.567183" level="INFO">Looking for configuration file: 'resources/db.cfg'</msg>
+<msg time="2025-01-01T21:58:44.567200" level="INFO">Configuration file doesn't exist</msg>
+<msg time="2025-01-01T21:58:44.567519" level="FAIL">ModuleNotFoundError: No module named 'localhost'</msg>
+<arg>localhost</arg>
+<arg>phpmyadmin</arg>
+<arg>root</arg>
+<arg>your_password</arg>
+<arg>localhost</arg>
+<arg>8080</arg>
+<doc>Creates a database connection using the DB API 2.0 ``db_module`` and the parameters provided.
+Along with listed commonly used arguments (`db_name`, `db_host` etc.)
+you can set any other DB module specific parameters as key/value pairs.</doc>
+<status status="FAIL" start="2025-01-01T21:58:44.567087" elapsed="0.000876">ModuleNotFoundError: No module named 'localhost'</status>
+</kw>
+<kw name="Execute Sql String" owner="DatabaseLibrary">
 <var>${result}</var>
-<arg>python</arg>
-<arg>-u</arg>
-<arg>/Users/pichaya/Documents/GitHub/logic_sudoku/testcase/../keyword/common/calculator.py</arg>
-<doc>Runs a process and waits for it to complete.</doc>
-<status status="PASS" start="2024-12-29T20:46:57.471732" elapsed="0.013893"/>
+<arg>SELECT * FROM students</arg>
+<doc>Executes the ``sql_string`` as a single SQL command.</doc>
+<status status="NOT RUN" start="2025-01-01T21:58:44.568073" elapsed="0.000013"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>\n${result}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-12-29T20:46:57.486331" elapsed="0.000152"/>
+<kw name="Disconnect From Database" owner="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<status status="NOT RUN" start="2025-01-01T21:58:44.568441" elapsed="0.000010"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>\n${result.stdout}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-12-29T20:46:57.486560" elapsed="0.000237"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>\n${result.stderr}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2024-12-29T20:46:57.486867" elapsed="0.000148"/>
-</kw>
-<status status="PASS" start="2024-12-29T20:46:57.471483" elapsed="0.015624"/>
+<status status="FAIL" start="2025-01-01T21:58:44.566830" elapsed="0.001690">ModuleNotFoundError: No module named 'localhost'</status>
 </test>
-<status status="PASS" start="2024-12-29T20:46:57.323451" elapsed="0.164165"/>
+<status status="FAIL" start="2025-01-01T21:58:44.421571" elapsed="0.147098"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Tc04 Testcall Py">Tc04 Testcall Py</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tc06 Database">Tc06 Database</stat>
 </suite>
 </statistics>
 <errors>
